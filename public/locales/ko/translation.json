@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "homepage": "홈페이지",
+    "about": "정보 / FAQ",
+    "rooms": "객실",
+    "services": "서비스",
+    "packages": "패키지",
+    "gallery": "갤러리",
+    "travel": "여행 및 투어"
+  },
+  "homepage": {
+    "title": "인도네시아 최고의 해변",
+    "subtitle": "오늘 대여할 장소를 찾아보세요"
+  }
+}

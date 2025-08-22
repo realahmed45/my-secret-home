@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "homepage": "ホームページ",
+    "about": "概要 / FAQ",
+    "rooms": "部屋",
+    "services": "サービス",
+    "packages": "パッケージ",
+    "gallery": "ギャラリー",
+    "travel": "旅行とツアー"
+  },
+  "homepage": {
+    "title": "インドネシアの最高のビーチ",
+    "subtitle": "今日借りる場所を見つけましょう"
+  }
+}

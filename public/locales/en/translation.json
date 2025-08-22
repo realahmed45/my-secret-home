@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "homepage": "Homepage",
+    "about": "About/FAQ",
+    "rooms": "Rooms",
+    "services": "Services",
+    "packages": "Packages",
+    "gallery": "Gallery",
+    "travel": "Travel and Tour"
+  },
+  "homepage": {
+    "title": "Best Beaches in Indonesia",
+    "subtitle": "Find a place to rent today"
+  }
+}

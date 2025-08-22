@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "homepage": "主页",
+    "about": "关于/常见问题",
+    "rooms": "房间",
+    "services": "服务",
+    "packages": "套餐",
+    "gallery": "画廊",
+    "travel": "旅行与旅游"
+  },
+  "homepage": {
+    "title": "印度尼西亚最美的海滩",
+    "subtitle": "今天找到一个地方租用"
+  }
+}

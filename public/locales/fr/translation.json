@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "homepage": "Page d'accueil",
+    "about": "À propos / FAQ",
+    "rooms": "Chambres",
+    "services": "Services",
+    "packages": "Forfaits",
+    "gallery": "Galerie",
+    "travel": "Voyages et visites"
+  },
+  "homepage": {
+    "title": "Les meilleures plages d'Indonésie",
+    "subtitle": "Trouvez un endroit à louer aujourd'hui"
+  }
+}

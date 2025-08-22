@@ -1,0 +1,16 @@
+{
+    "navbar": {
+      "homepage": "Beranda",
+      "about": "Tentang/FAQ",
+      "rooms": "Kamar",
+      "services": "Layanan",
+      "packages": "Paket",
+      "gallery": "Galeri",
+      "travel": "Perjalanan dan Tur"
+    },
+    "homepage": {
+      "title": "Pantai Terbaik di Indonesia",
+      "subtitle": "Temukan tempat untuk disewa hari ini"
+    }
+  }
+  
