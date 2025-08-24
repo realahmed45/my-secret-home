@@ -3,53 +3,20 @@ import { Link } from "react-router-dom";
 import logo from "../images/logo.png"; // Adjust the path as needed
 import { useTranslation } from "react-i18next";
 
-// Import your flag images here
-import UKFlag from "../images/flags/uk.png";
-import ArabicFlag from "../images/flags/arabic.png";
-import ChineseFlag from "../images/flags/chinese.png";
-import FrenchFlag from "../images/flags/france.png";
-import HindiFlag from "../images/flags/hindi.png";
-import IndonesianFlag from "../images/flags/indonesia.png";
-import JapaneseFlag from "../images/flags/japanese.png";
-import KoreanFlag from "../images/flags/korean.png";
-
 const Navbar = () => {
-  const { t, i18n } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const languages = [
-    { code: "en", name: "English", flag: UKFlag },
-    { code: "ar", name: "Arabic", flag: ArabicFlag },
-    { code: "zh", name: "Chinese", flag: ChineseFlag },
-    { code: "fr", name: "French", flag: FrenchFlag },
-    { code: "hi", name: "Hindi", flag: HindiFlag },
-    { code: "id", name: "Indonesian", flag: IndonesianFlag },
-    { code: "ja", name: "Japanese", flag: JapaneseFlag },
-    { code: "ko", name: "Korean", flag: KoreanFlag },
-  ];
-
-  const changeLanguage = (langCode) => {
-    i18n.changeLanguage(langCode);
-    setIsOpen(false);
-  };
-
-  const getCurrentLanguage = () => {
-    return (
-      languages.find((lang) => lang.code === i18n.language) || languages[0]
-    );
-  };
 
   return (
     <div>
       {/* Large Screens Navbar */}
-      <nav className="hidden lg:block fixed w-full h-16 top-0 left-0 z-50  bg-[#e0dcd4]">
+      <nav className="hidden lg:block fixed w-full h-16 top-0 left-0 z-50 bg-[#e0dcd4]">
         <div className="flex justify-between items-center px-4 py-2 lg:px-8">
           <Link to="/" className="flex-shrink-0">
             <img
               src={logo}
               alt="Website Logo"
-              className="h-20 w-auto sm: ml-6 mb-6"
+              className="h-20 w-auto ml-6 mb-6"
             />
           </Link>
           <div className="flex space-x-4 mb-10 text-1xl">
@@ -71,44 +38,8 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <div id="gt_float_wrapper" className="relative z-[9999] ml-10">
-            <div
-              className="gt-selected bg-gray-100 border rounded px-2 py-1 cursor-pointer flex items-center mb-10"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <img
-                src={getCurrentLanguage().flag}
-                alt={getCurrentLanguage().name}
-                className="w-4 h-3 mr-2"
-              />
-              <span className="gt-lang-code text-sm">
-                {getCurrentLanguage().name}
-              </span>
-              <span className="ml-2 gt_float_switcher-arrow">
-                {isOpen ? "▲" : "▼"}
-              </span>
-            </div>
-
-            {isOpen && (
-              <div
-                className="absolute top-10 right-0 bg-white shadow-md border rounded w-36"
-                style={{ maxHeight: "200px", overflowY: "auto" }}
-              >
-                {languages.map(({ code, name, flag }) => (
-                  <div
-                    key={code}
-                    className={`nturl flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer ${
-                      i18n.language === code ? "gt-current" : ""
-                    }`}
-                    onClick={() => changeLanguage(code)}
-                  >
-                    <img src={flag} alt={code} className="w-4 h-3 mr-2" />
-                    <span className="text-sm">{name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Empty div to balance the logo and center the navigation */}
+          <div className="flex-shrink-0 w-32"></div>
         </div>
       </nav>
 
@@ -141,44 +72,7 @@ const Navbar = () => {
               className="h-16 w-auto ml-5 mb-4"
             />
           </Link>
-          <div id="gt_float_wrapper" className="relative z-[9999] mb-6">
-            <div
-              className="gt-selected bg-gray-100 border rounded px-2 py-1 cursor-pointer flex items-center"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <img
-                src={getCurrentLanguage().flag}
-                alt={getCurrentLanguage().name}
-                className="w-4 h-3 mr-2"
-              />
-              <span className="gt-lang-code text-sm  ">
-                {getCurrentLanguage().name}
-              </span>
-              <span className="ml-2 gt_float_switcher-arrow">
-                {isOpen ? "▲" : "▼"}
-              </span>
-            </div>
-
-            {isOpen && (
-              <div
-                className="absolute top-10 right-0 bg-white shadow-md border rounded w-36"
-                style={{ maxHeight: "200px", overflowY: "auto" }}
-              >
-                {languages.map(({ code, name, flag }) => (
-                  <div
-                    key={code}
-                    className={`nturl flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer ${
-                      i18n.language === code ? "gt-current" : ""
-                    }`}
-                    onClick={() => changeLanguage(code)}
-                  >
-                    <img src={flag} alt={code} className="w-4 h-3 mr-2" />
-                    <span className="text-sm">{name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <div className="w-8"></div> {/* Spacer to maintain layout balance */}
         </div>
 
         {/* Sidebar Menu */}
