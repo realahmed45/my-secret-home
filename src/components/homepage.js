@@ -31,7 +31,7 @@ const MainHome = () => {
               <Link
                 key={to}
                 to={to}
-                className="text-[#dd9933] font-small hover:text-white hover:border hover:border-white px-2 py-1 text-sm rounded-[4px]"
+                className="text-[#dd9933] font-small hover:text-white hover:border-white px-2 py-1 text-sm rounded-[4px] border border-transparent"
               >
                 {text}
               </Link>
