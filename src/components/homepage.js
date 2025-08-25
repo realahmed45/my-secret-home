@@ -2,43 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Ensure React Router's Link is imported
 
 import logo from "../images/logo.png"; // Import logo image
-import UKFlag from "../images/flags/uk.png"; // Adjust all flag imports based on your file paths
-import ArabicFlag from "../images/flags/arabic.png";
-import ChineseFlag from "../images/flags/chinese.png";
-import FrenchFlag from "../images/flags/france.png";
-import HindiFlag from "../images/flags/hindi.png";
-import IndonesianFlag from "../images/flags/indonesia.png";
-import JapaneseFlag from "../images/flags/japanese.png";
-import KoreanFlag from "../images/flags/korean.png";
-import { useTranslation } from "react-i18next";
 
 const MainHome = () => {
-  const { t, i18n } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
-
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const languages = [
-    { code: "en", name: "English", flag: UKFlag },
-    { code: "ar", name: "Arabic", flag: ArabicFlag },
-    { code: "zh", name: "Chinese", flag: ChineseFlag },
-    { code: "fr", name: "French", flag: FrenchFlag },
-    { code: "hi", name: "Hindi", flag: HindiFlag },
-    { code: "id", name: "Indonesian", flag: IndonesianFlag },
-    { code: "ja", name: "Japanese", flag: JapaneseFlag },
-    { code: "ko", name: "Korean", flag: KoreanFlag },
-  ];
-
-  const changeLanguage = (langCode) => {
-    i18n.changeLanguage(langCode);
-    setIsOpen(false);
-  };
-
-  const getCurrentLanguage = () => {
-    return (
-      languages.find((lang) => lang.code === i18n.language) || languages[0]
-    );
-  };
 
   return (
     <div>
@@ -49,66 +15,30 @@ const MainHome = () => {
             <img
               src={logo}
               alt="Website Logo"
-              className="h-20 w-auto sm: ml-6 mb-6"
+              className="h-20 w-auto ml-6 mb-6"
             />
           </Link>
-          <div className="flex space-x-4 mb-10">
+          <div className="flex space-x-4 mb-10 text-1xl">
             {[
-              { to: "/home-page", textKey: "navbar.homepage" },
-              { to: "/faqs", textKey: "navbar.about" },
-              { to: "/rooms", textKey: "navbar.rooms" },
-              { to: "/services", textKey: "navbar.services" },
-              { to: "/travel", textKey: "navbar.packages" },
-              { to: "/gallery", textKey: "navbar.gallery" },
-              { to: "/travel", textKey: "navbar.travel" },
-            ].map(({ to, textKey }) => (
+              { to: "/home-page", text: "Home" },
+              { to: "/faqs", text: "About" },
+              { to: "/rooms", text: "Rooms" },
+              { to: "/services", text: "Services" },
+              { to: "/travel", text: "Packages" },
+              { to: "/gallery", text: "Gallery" },
+              { to: "/travel", text: "Travel" },
+            ].map(({ to, text }) => (
               <Link
                 key={to}
                 to={to}
                 className="text-[#dd9933] font-small hover:text-white hover:border hover:border-white px-2 py-1 text-sm rounded-[4px]"
               >
-                {t(textKey)}
+                {text}
               </Link>
             ))}
           </div>
-          <div id="gt_float_wrapper" className="relative z-[9999] ml-10">
-            <div
-              className="gt-selected bg-gray-100 border rounded px-2 py-1 cursor-pointer flex items-center mb-10"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <img
-                src={getCurrentLanguage().flag}
-                alt={getCurrentLanguage().name}
-                className="w-4 h-3 mr-2"
-              />
-              <span className="gt-lang-code text-sm">
-                {getCurrentLanguage().name}
-              </span>
-              <span className="ml-2 gt_float_switcher-arrow">
-                {isOpen ? "▲" : "▼"}
-              </span>
-            </div>
-
-            {isOpen && (
-              <div
-                className="absolute top-10 right-0 bg-white shadow-md border rounded w-36"
-                style={{ maxHeight: "200px", overflowY: "auto" }}
-              >
-                {languages.map(({ code, name, flag }) => (
-                  <div
-                    key={code}
-                    className={`nturl flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer ${
-                      i18n.language === code ? "gt-current" : ""
-                    }`}
-                    onClick={() => changeLanguage(code)}
-                  >
-                    <img src={flag} alt={code} className="w-4 h-3 mr-2" />
-                    <span className="text-sm">{name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Empty div to balance the logo and center the navigation */}
+          <div className="flex-shrink-0 w-32"></div>
         </div>
       </nav>
 
@@ -141,44 +71,7 @@ const MainHome = () => {
               className="h-16 w-auto ml-5 mb-4"
             />
           </Link>
-          <div id="gt_float_wrapper" className="relative z-[9999] mb-6">
-            <div
-              className="gt-selected bg-gray-100 border rounded px-2 py-1 cursor-pointer flex items-center"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <img
-                src={getCurrentLanguage().flag}
-                alt={getCurrentLanguage().name}
-                className="w-4 h-3 mr-2"
-              />
-              <span className="gt-lang-code text-sm  ">
-                {getCurrentLanguage().name}
-              </span>
-              <span className="ml-2 gt_float_switcher-arrow">
-                {isOpen ? "▲" : "▼"}
-              </span>
-            </div>
-
-            {isOpen && (
-              <div
-                className="absolute top-10 right-0 bg-white shadow-md border rounded w-36"
-                style={{ maxHeight: "200px", overflowY: "auto" }}
-              >
-                {languages.map(({ code, name, flag }) => (
-                  <div
-                    key={code}
-                    className={`nturl flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer ${
-                      i18n.language === code ? "gt-current" : ""
-                    }`}
-                    onClick={() => changeLanguage(code)}
-                  >
-                    <img src={flag} alt={code} className="w-4 h-3 mr-2" />
-                    <span className="text-sm">{name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <div className="w-8"></div> {/* Spacer to maintain layout balance */}
         </div>
 
         {/* Sidebar Menu */}
@@ -194,21 +87,21 @@ const MainHome = () => {
             </div>
             <div className="flex flex-col space-y-4 mt-2 px-4 text-1xl">
               {[
-                { to: "/home-page", textKey: "navbar.homepage" },
-                { to: "/faqs", textKey: "navbar.about" },
-                { to: "/rooms", textKey: "navbar.rooms" },
-                { to: "/services", textKey: "navbar.services" },
-                { to: "/travel", textKey: "navbar.packages" },
-                { to: "/gallery", textKey: "navbar.gallery" },
-                { to: "/travel", textKey: "navbar.travel" },
-              ].map(({ to, textKey }) => (
+                { to: "/home-page", text: "Home" },
+                { to: "/faqs", text: "About" },
+                { to: "/rooms", text: "Rooms" },
+                { to: "/services", text: "Services" },
+                { to: "/travel", text: "Packages" },
+                { to: "/gallery", text: "Gallery" },
+                { to: "/travel", text: "Travel" },
+              ].map(({ to, text }) => (
                 <Link
                   key={to}
                   to={to}
                   onClick={() => setMenuOpen(false)}
                   className="text-sm hover:text-[#dd9933]"
                 >
-                  {t(textKey)}
+                  {text}
                 </Link>
               ))}
             </div>
@@ -231,7 +124,7 @@ const MainHome = () => {
               src="https://mysecrethomebali.com/wp-content/uploads/2024/09/Untitled-design.mp4"
               type="video/mp4"
             />
-            {t("homepage.videoFallback")} {/* Translatable fallback message */}
+            Your browser does not support the video tag.
           </video>
           {/* Black Cover */}
           <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
@@ -240,10 +133,10 @@ const MainHome = () => {
         {/* Content Overlay */}
         <div className="relative z-10 text-center text-white h-full flex flex-col justify-center items-center ">
           <h1 className="text-5xl lg:text-5xl  mb-4 sm: text-3xl mb-5">
-            {t("homepage.title")} {/* Dynamic translation for the title */}
+            Welcome to Our Hotel
           </h1>
           <p className="text-xl lg:text-1xl sm:mb-4">
-            {t("homepage.subtitle")}
+            Experience luxury and comfort like never before
           </p>
         </div>
       </div>
