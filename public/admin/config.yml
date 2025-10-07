@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: realahmed45/my-secret-home # Just username/repo-name
+  repo: realahmed45/my-secret-home
   branch: main
-  open_authoring: true
 
+publish_mode: editorial_workflow
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
