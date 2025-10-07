@@ -62,6 +62,17 @@ const Rooms = () => {
     );
   };
 
+  // Property link mapping function
+  const getPropertyLink = (roomNumber) => {
+    const linkMap = {
+      1: "/property-3", // Room 1 -> /property3
+      2: "/property-4", // Room 2 -> /property4
+      3: "/property-1", // Room 3 -> /property1
+      4: "/property-2", // Room 4 -> /property2
+    };
+    return linkMap[roomNumber] || `/property-${roomNumber}`;
+  };
+
   const faqs = [
     {
       question: "What are the check-in and check-out times?",
@@ -109,7 +120,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -125,7 +136,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -141,7 +152,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -157,7 +168,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -173,7 +184,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -189,7 +200,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -205,7 +216,7 @@ const Rooms = () => {
       tickPoints: [
         "Spacious Loft Design",
         "Dedicated Workspace",
-        "Cozy Linens and Towels",
+        "Perfect for a family of 4",
         "Private Attached Bathroom",
       ],
       image:
@@ -255,8 +266,15 @@ const Rooms = () => {
       <section className="mt-6 mb-20 px-4 md:px-12 lg:px-40 flex flex-col md:flex-row items-center gap-6">
         <div className="w-full md:w-1/2 mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-[#dc9c34] mb-4">
-            {houseSections[activeSection - 1].heading}
+            {houseSections[activeSection - 1].heading}{" "}
+            <Link
+              to={getPropertyLink(activeSection)}
+              className="text-black text-1xl  ml-6 font-normal mb-20"
+            >
+              For more info click here
+            </Link>
           </h2>
+
           <p className="text-sm md:text-base text-gray-600 mb-4 leading-loose">
             {houseSections[activeSection - 1].description}
           </p>
@@ -270,12 +288,6 @@ const Rooms = () => {
           </ul>
           {activeSection <= 4 && (
             <div className="flex flex-col">
-              <Link
-                to={`/property-${activeSection}`}
-                className="text-black font-bold mb-2"
-              >
-                For more info click here
-              </Link>
               <button className="bg-[#dc9c34] text-white py-2 px-4 md:px-6 shadow-md hover:bg-[#d19a1a]">
                 Book Now
               </button>

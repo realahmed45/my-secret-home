@@ -299,14 +299,13 @@ const Property3 = () => {
           <div className="text-sm text-gray-700 leading-6 space-y-6">
             <div>
               <p className="mb-4">
-                Need more than 1 bed or just like having extra space? Then
-                you’ve found your spot!A loft-like space with fun corners and
-                dedicated workplaces. Our biggest room has 2 stores and 2
-                separate (but integrated) beds areas… Great for family, friends
-                travelling together and digital nomads.Beyond your loft, enjoy
-                our lounge areas or refresh in the pool. A fully equipped
-                kitchen is available to you and a superb breakfast is provided
-                daily, with no time restriction. Welcome to our secret home!
+                A loft-like space with fun corners and dedicated workplaces. Our
+                biggest room has 2 stores and 2 separate (but integrated) beds
+                areas… Great for family, friends travelling together and digital
+                nomads.Beyond your loft, enjoy our lounge areas or refresh in
+                the pool. A fully equipped kitchen is available to you and a
+                superb breakfast is provided daily, with no time restriction.
+                Welcome to our secret home!
               </p>
             </div>
             <div>
@@ -320,7 +319,7 @@ const Property3 = () => {
                 After a long day of visiting the city, relax and take in the
                 fresh breeze on the outside seating area.
               </p>
-              <p className="mb-2">—————-cat——————————</p>
+              <p className="mb-2">—————-***cat warning *** 🐈🐈 ——————————</p>
               <p className="mb-2">
                 !! the room has a cat that visit you during the night jumpa on
                 your bed and sleep with you. ————————————————–
