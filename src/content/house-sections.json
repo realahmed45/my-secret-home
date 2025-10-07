@@ -1,0 +1,46 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "title": "Living room",
+      "heading": "Living room",
+      "description": "In secret Bali home, the living room exudes tranquility and style. It features rich wooden beams, stone floors, and large windows that offer views of lush gardens. Furnished with a plush, neutral sofa and handcrafted Balinese tables, the space blends traditional and modern elements. Light, flowing drapes filter sunlight, and local art and pottery add character. Indoor plants and an earthy color palette enhance the serene atmosphere. A ceiling fan provides a gentle breeze, completing this peaceful retreat.",
+      "image": "/videos/living.png"
+    },
+    {
+      "id": 2,
+      "title": "Bedroom",
+      "heading": "Bedroom",
+      "description": "In secret Bali home, the bedroom offers a luxurious retreat with two king-sized beds, each draped in soft, high-quality linens for ultimate comfort. The room features air conditioning and a ceiling fan, ensuring a cool and restful environment. Ample clothing storage is provided, along with essentials like extra pillows and blankets for added coziness. Room-darkening shades guarantee a peaceful night's sleep, while a safe and hangers cater to practical needs. For entertainment, a flat-screen TV is included, blending modern convenience with a serene, well-appointed space.",
+      "image": "/videos/bedroom.png"
+    },
+    {
+      "id": 3,
+      "title": "Kitchen",
+      "heading": "Kitchen",
+      "description": "In secret Bali home, the kitchen is a blend of modern functionality and island charm. It features sleek, natural stone countertops and rich wooden cabinets with traditional Balinese carvings. High-end appliances are seamlessly integrated into the design, ensuring efficiency while maintaining a cohesive look. A central island provides both extra prep space and a casual dining area. Large windows allow natural light to flood in, making the space bright and inviting. Decorative touches like handwoven baskets and local ceramics add warmth and character, creating a welcoming culinary haven.",
+      "image": "/videos/kitchen.png"
+    },
+    {
+      "id": 4,
+      "title": "Full Bathroom",
+      "heading": "Full Bathroom",
+      "description": "In the full bathroom of secret Bali home, you'll find a blend of luxury and practicality. The space includes a relaxing bathtub for unwinding, along with a separate shower equipped with shampoo, conditioner, and shower gel. Air conditioning ensures a comfortable temperature, while a bidet adds a touch of modern convenience. Essential amenities like body soap, a hair dryer, and cleaning products are provided, and a consistent supply of hot water enhances your comfort",
+      "image": "/videos/bath.png"
+    },
+    {
+      "id": 5,
+      "title": "Patio",
+      "heading": "Patio",
+      "description": "The patio of secret Bali home is a serene outdoor oasis. It features comfortable lounge furniture and a dining area, perfect for enjoying meals or relaxing while taking in the lush garden views. Tropical plants and subtle lighting create a cozy, inviting atmosphere. A thatched roof or pergola provides shade, and a nearby water feature adds a soothing soundscape. The space is designed for both relaxation and entertaining, embodying the tranquility and charm of Bali.",
+      "image": "/videos/patio.png"
+    },
+    {
+      "id": 6,
+      "title": "Shared Pool",
+      "heading": "Shared Pool",
+      "description": "The shared pool at secret Bali home is a tranquil retreat, nestled within a lush tropical setting. It features crystal-clear water and is surrounded by sun loungers for ultimate relaxation. Elegant landscaping with vibrant greenery and blooming flowers enhances the serene atmosphere. A shaded pavilion offers a cool spot to unwind, while the pool's gentle design integrates seamlessly with the natural beauty of Bali, creating a perfect escape for both leisurely swims and peaceful lounging.",
+      "image": "/videos/shared-pool.png"
+    }
+  ]
+}

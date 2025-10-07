@@ -1,0 +1,68 @@
+{
+  "title": "Private room in guesthouse in Kecamatan Kuta, Indonesia",
+  "type": "House · Private room",
+  "price": "$89",
+  "guests": "2",
+  "bedrooms": "1",
+  "bathrooms": "1",
+  "description": "## About this space\n\n✦ Enjoy a bathtub in a private garden of your own room!\n\nOur SPA Room is a delight! Privacy and comfort in the best location. Be sure to relax in the end of the day with a proper bubble bath and big bed… or request a in-room massage with our house specialists.\n\nBooking this room grants access to all facilities in the house; like our pool area or secret gardens. Enjoy a fully equipped kitchen or a short walk to the beach, only a minute walk away…",
+  "images": [
+    "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-15-1.png",
+    "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-9-1.png"
+  ],
+  "address": "Kecamatan Kuta, Bali, Indonesia",
+  "city": "Kecamatan Kuta",
+  "state": "Bali",
+  "country": "Indonesia",
+  "zip": "80361",
+  "propertyId": "37364",
+  "checkOutHour": "11:00 AM",
+  "checkInHour": "2:00 PM - 2:00 AM",
+  "bathroomFeatures": [
+    "Bathtub",
+    "Cleaning products",
+    "Hair dryer",
+    "Outdoor shower",
+    "Shower gel",
+    "Bidet",
+    "Conditioner",
+    "Hot water",
+    "Shampoo"
+  ],
+  "bedBathFeatures": [
+    "Hangers",
+    "Bed linens",
+    "Drying rack for clothing",
+    "Extra pillows and blankets",
+    "Iron",
+    "Safe",
+    "Clothing storage: closet and wardrobe",
+    "Essentials",
+    "Room-darkening shades"
+  ],
+  "entertainmentFeatures": [
+    "Bluetooth sound system",
+    "Exercise equipment: yoga mat",
+    "TV",
+    "Books and reading material",
+    "Movie theater"
+  ],
+  "heatingCoolingFeatures": [
+    "Air conditioning",
+    "Lock on bedroom door",
+    "Ceiling fan",
+    "Portable fans"
+  ],
+  "servicesFeatures": [
+    "Breakfast",
+    "Host greets you",
+    "Smoking allowed",
+    "Cleaning available during stay",
+    "Luggage dropoff allowed"
+  ],
+  "smokingAllowed": true,
+  "partyAllowed": false,
+  "childrenAllowed": true,
+  "cancellationPolicy": "2:00 PM (Check-in): No refund",
+  "otherRules": "If you come at night between 9 PM till 6 AM we can arrange that someone checks you in for an additional fee of 15 USD."
+}

@@ -1,0 +1,36 @@
+{
+  "services": [
+    {
+      "image": "/videos/service1.png",
+      "url": "/service-1"
+    },
+    {
+      "image": "/videos/service2.png",
+      "url": "/service-2"
+    },
+    {
+      "image": "/videos/service3.png",
+      "url": "/service-3"
+    },
+    {
+      "image": "/videos/service4.png",
+      "url": "/service-4"
+    },
+    {
+      "image": "/videos/service5.png",
+      "url": "/service-5"
+    },
+    {
+      "image": "/videos/service6.png",
+      "url": "/service-6"
+    },
+    {
+      "image": "/videos/service7.png",
+      "url": "/service-7"
+    },
+    {
+      "image": "/videos/service8.png",
+      "url": "/service-8"
+    }
+  ]
+}

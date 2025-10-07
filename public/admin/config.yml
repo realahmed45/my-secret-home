@@ -7,95 +7,503 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  # ===== NAVBAR =====
+  - name: "navbar"
+    label: "Navigation Bar"
+    files:
+      - name: "navbar_content"
+        label: "Navbar Content"
+        file: "src/content/navbar.json"
+        fields:
+          - { label: "Logo Image", name: "logo", widget: "image" }
+          - label: "Menu Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Link Text", name: "text", widget: "string" }
+              - { label: "Link URL", name: "url", widget: "string" }
+
+  # ===== HOMEPAGE =====
   - name: "homepage"
     label: "Homepage"
     files:
-      - name: "hero"
+      - name: "homepage_hero"
         label: "Hero Section"
-        file: "src/content/homepage.json"
+        file: "src/content/homepage-hero.json"
         fields:
           - { label: "Main Title", name: "mainTitle", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Video URL", name: "videoUrl", widget: "string" }
+          - {
+              label: "Background Video URL",
+              name: "videoUrl",
+              widget: "string",
+            }
 
+      - name: "homepage_search"
+        label: "Search Bar"
+        file: "src/content/homepage-search.json"
+        fields:
+          - {
+              label: "Check-in Placeholder",
+              name: "checkInText",
+              widget: "string",
+            }
+          - {
+              label: "Check-out Placeholder",
+              name: "checkOutText",
+              widget: "string",
+            }
+          - {
+              label: "Guests Placeholder",
+              name: "guestsText",
+              widget: "string",
+            }
+          - {
+              label: "Search Button Text",
+              name: "searchButtonText",
+              widget: "string",
+            }
+          - { label: "Adults Label", name: "adultsLabel", widget: "string" }
+          - { label: "Children Label", name: "childrenLabel", widget: "string" }
+          - { label: "Infants Label", name: "infantsLabel", widget: "string" }
+          - { label: "Close Button Text", name: "closeText", widget: "string" }
+
+      - name: "homepage_properties"
+        label: "Properties Section"
+        file: "src/content/homepage-properties.json"
+        fields:
+          - { label: "Section Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Section Title", name: "title", widget: "string" }
+
+      - name: "homepage_why_choose"
+        label: "Why Choose Us Section"
+        file: "src/content/homepage-why-choose.json"
+        fields:
+          - { label: "Section Label", name: "sectionLabel", widget: "string" }
+          - { label: "Section Heading", name: "heading", widget: "string" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Feature Title", name: "title", widget: "string" }
+
+  # ===== ABOUT/FAQ PAGE =====
   - name: "about"
-    label: "About Page"
+    label: "About/FAQ Page"
     files:
       - name: "about_content"
-        label: "About Content"
+        label: "About Section"
         file: "src/content/about.json"
         fields:
           - { label: "Page Title", name: "pageTitle", widget: "string" }
-          - { label: "About Title", name: "aboutTitle", widget: "string" }
-          - {
-              label: "About Description",
-              name: "aboutDescription",
-              widget: "text",
-            }
+          - { label: "Main Heading", name: "mainHeading", widget: "string" }
+          - { label: "Description Text", name: "description", widget: "text" }
           - { label: "Banner Image", name: "bannerImage", widget: "image" }
           - { label: "Button Text", name: "buttonText", widget: "string" }
 
+      - name: "house_sections"
+        label: "House Sections (Living Room, Bedroom, etc.)"
+        file: "src/content/house-sections.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section ID", name: "id", widget: "number" }
+              - { label: "Tab Title", name: "title", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Section Image", name: "image", widget: "image" }
+
+      - name: "faqs"
+        label: "FAQs Section"
+        file: "src/content/faqs.json"
+        fields:
+          - { label: "FAQ Heading", name: "heading", widget: "string" }
+          - { label: "FAQ Description", name: "description", widget: "text" }
+          - label: "FAQ Items"
+            name: "faqItems"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  # ===== ROOMS PAGE =====
   - name: "rooms"
-    label: "Rooms"
-    folder: "src/content/rooms"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Room Name", name: "title", widget: "string" }
-      - { label: "Room Number", name: "roomNumber", widget: "number" }
-      - { label: "Price per Night", name: "price", widget: "number" }
-      - { label: "Description", name: "description", widget: "markdown" }
-      - { label: "Main Image", name: "mainImage", widget: "image" }
-      - label: "Gallery Images"
-        name: "galleryImages"
-        widget: "list"
-        field: { label: "Image", name: "image", widget: "image" }
-      - { label: "Number of Guests", name: "guests", widget: "number" }
-      - { label: "Number of Bedrooms", name: "bedrooms", widget: "number" }
-      - { label: "Number of Bathrooms", name: "bathrooms", widget: "number" }
+    label: "Rooms Page"
+    files:
+      - name: "rooms_intro"
+        label: "Rooms Introduction"
+        file: "src/content/rooms-intro.json"
+        fields:
+          - { label: "Page Heading", name: "heading", widget: "string" }
+          - { label: "Page Description", name: "description", widget: "text" }
 
+      - name: "rooms_tabs"
+        label: "Room Tabs Content"
+        file: "src/content/rooms-tabs.json"
+        fields:
+          - label: "Rooms"
+            name: "rooms"
+            widget: "list"
+            fields:
+              - { label: "Room ID", name: "id", widget: "number" }
+              - { label: "Tab Title", name: "tabTitle", widget: "string" }
+              - { label: "Room Heading", name: "heading", widget: "string" }
+              - {
+                  label: "Room Description",
+                  name: "description",
+                  widget: "text",
+                }
+              - { label: "Room Image", name: "image", widget: "image" }
+              - label: "Feature List"
+                name: "tickPoints"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+              - {
+                  label: "Property Link",
+                  name: "propertyLink",
+                  widget: "string",
+                }
+
+      - name: "rooms_faqs"
+        label: "Rooms FAQ Section"
+        file: "src/content/rooms-faqs.json"
+        fields:
+          - { label: "FAQ Heading", name: "heading", widget: "string" }
+          - { label: "FAQ Description", name: "description", widget: "text" }
+          - label: "FAQ Items"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - label: "Answer Points"
+                name: "answer"
+                widget: "list"
+                field: { label: "Point", name: "point", widget: "string" }
+
+  # ===== SERVICES PAGE =====
   - name: "services"
-    label: "Services"
-    folder: "src/content/services"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Service Name", name: "title", widget: "string" }
-      - {
-          label: "Service Description",
-          name: "description",
-          widget: "markdown",
-        }
-      - { label: "Service Image", name: "image", widget: "image" }
+    label: "Services Page"
+    files:
+      - name: "services_intro"
+        label: "Services Page Intro"
+        file: "src/content/services-intro.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Description", name: "description", widget: "text" }
 
-  - name: "faqs"
-    label: "FAQs"
-    folder: "src/content/faqs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Question", name: "question", widget: "string" }
-      - { label: "Answer", name: "answer", widget: "text" }
+      - name: "services_list"
+        label: "Services List"
+        file: "src/content/services-list.json"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Service Image", name: "image", widget: "image" }
+              - { label: "Service URL", name: "url", widget: "string" }
 
+  # ===== INDIVIDUAL SERVICE PAGES =====
+  - name: "service_pages"
+    label: "Service Detail Pages"
+    files:
+      - name: "service_1"
+        label: "Service 1 - Surfing"
+        file: "src/content/service-1.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_2"
+        label: "Service 2 - Massage"
+        file: "src/content/service-2.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_3"
+        label: "Service 3 - Breakfast"
+        file: "src/content/service-3.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_4"
+        label: "Service 4 - Coconut"
+        file: "src/content/service-4.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_5"
+        label: "Service 5 - Picnicking"
+        file: "src/content/service-5.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_6"
+        label: "Service 6 - Hot Chocolate"
+        file: "src/content/service-6.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_7"
+        label: "Service 7 - Sandboxes"
+        file: "src/content/service-7.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+      - name: "service_8"
+        label: "Service 8 - Playground"
+        file: "src/content/service-8.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Image", name: "mainImage", widget: "image" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+  # ===== GALLERY PAGE =====
+  - name: "gallery"
+    label: "Gallery Page"
+    files:
+      - name: "gallery_content"
+        label: "Gallery Content"
+        file: "src/content/gallery.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - label: "Gallery Images"
+            name: "images"
+            widget: "list"
+            field: { label: "Image URL", name: "url", widget: "image" }
+
+  # ===== TRAVEL PAGE =====
+  - name: "travel"
+    label: "Travel & Tour Page"
+    files:
+      - name: "travel_content"
+        label: "Travel Page Content"
+        file: "src/content/travel.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Agency Name", name: "agencyName", widget: "string" }
+          - { label: "Service Type", name: "serviceType", widget: "string" }
+          - { label: "Price", name: "price", widget: "number" }
+          - { label: "Card Image", name: "cardImage", widget: "image" }
+
+      - name: "travel_description"
+        label: "Travel Description Page"
+        file: "src/content/travel-description.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Banner Image", name: "mainImage", widget: "image" }
+          - {
+              label: "Description Content",
+              name: "content",
+              widget: "markdown",
+            }
+          - label: "Gallery Images"
+            name: "galleryImages"
+            widget: "list"
+            field: { label: "Image URL", name: "url", widget: "image" }
+
+  # ===== PROPERTY PAGES =====
+  - name: "properties"
+    label: "Property Detail Pages"
+    files:
+      - name: "property_1"
+        label: "Property 1 - India Room"
+        file: "src/content/property-1.json"
+        fields:
+          - { label: "Property Title", name: "title", widget: "string" }
+          - { label: "Property Type", name: "type", widget: "string" }
+          - { label: "Price per Night", name: "price", widget: "string" }
+          - { label: "Number of Guests", name: "guests", widget: "string" }
+          - { label: "Number of Bedrooms", name: "bedrooms", widget: "string" }
+          - {
+              label: "Number of Bathrooms",
+              name: "bathrooms",
+              widget: "string",
+            }
+          - {
+              label: "Main Description",
+              name: "description",
+              widget: "markdown",
+            }
+          - label: "Image Gallery URLs"
+            name: "images"
+            widget: "list"
+            field: { label: "Image URL", name: "url", widget: "image" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "City", name: "city", widget: "string" }
+          - { label: "State", name: "state", widget: "string" }
+          - { label: "Country", name: "country", widget: "string" }
+          - { label: "Zip Code", name: "zip", widget: "string" }
+          - { label: "Property ID", name: "propertyId", widget: "string" }
+          - { label: "Check-out Hour", name: "checkOutHour", widget: "string" }
+          - { label: "Check-in Hour", name: "checkInHour", widget: "string" }
+          - label: "Features - Bathroom"
+            name: "bathroomFeatures"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Features - Bed and Bath"
+            name: "bedBathFeatures"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Features - Entertainment"
+            name: "entertainmentFeatures"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Features - Heating and Cooling"
+            name: "heatingCoolingFeatures"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Features - Services"
+            name: "servicesFeatures"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - {
+              label: "Smoking Allowed",
+              name: "smokingAllowed",
+              widget: "boolean",
+            }
+          - { label: "Party Allowed", name: "partyAllowed", widget: "boolean" }
+          - {
+              label: "Children Allowed",
+              name: "childrenAllowed",
+              widget: "boolean",
+            }
+          - {
+              label: "Cancellation Policy",
+              name: "cancellationPolicy",
+              widget: "text",
+            }
+          - { label: "Other Rules", name: "otherRules", widget: "text" }
+
+      - name: "property_2"
+        label: "Property 2 - Nepal Room"
+        file: "src/content/property-2.json"
+        fields:
+          - { label: "Property Title", name: "title", widget: "string" }
+          - { label: "Property Type", name: "type", widget: "string" }
+          - { label: "Price per Night", name: "price", widget: "string" }
+          - { label: "Number of Guests", name: "guests", widget: "string" }
+          - { label: "Number of Bedrooms", name: "bedrooms", widget: "string" }
+          - {
+              label: "Number of Bathrooms",
+              name: "bathrooms",
+              widget: "string",
+            }
+          - {
+              label: "Main Description",
+              name: "description",
+              widget: "markdown",
+            }
+          - label: "Image Gallery URLs"
+            name: "images"
+            widget: "list"
+            field: { label: "Image URL", name: "url", widget: "image" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "City", name: "city", widget: "string" }
+          - { label: "State", name: "state", widget: "string" }
+          - { label: "Country", name: "country", widget: "string" }
+          - { label: "Zip Code", name: "zip", widget: "string" }
+          - { label: "Property ID", name: "propertyId", widget: "string" }
+          - {
+              label: "Smoking Allowed",
+              name: "smokingAllowed",
+              widget: "boolean",
+            }
+          - { label: "Party Allowed", name: "partyAllowed", widget: "boolean" }
+          - {
+              label: "Children Allowed",
+              name: "childrenAllowed",
+              widget: "boolean",
+            }
+          - {
+              label: "Cancellation Policy",
+              name: "cancellationPolicy",
+              widget: "text",
+            }
+
+      - name: "property_3"
+        label: "Property 3 - Spa Room"
+        file: "src/content/property-3.json"
+        fields:
+          - { label: "Property Title", name: "title", widget: "string" }
+          - { label: "Property Type", name: "type", widget: "string" }
+          - { label: "Price per Night", name: "price", widget: "string" }
+          - { label: "Number of Guests", name: "guests", widget: "string" }
+          - {
+              label: "Main Description",
+              name: "description",
+              widget: "markdown",
+            }
+          - label: "Image Gallery URLs"
+            name: "images"
+            widget: "list"
+            field: { label: "Image URL", name: "url", widget: "image" }
+
+      - name: "property_4"
+        label: "Property 4 - Easy Room"
+        file: "src/content/property-4.json"
+        fields:
+          - { label: "Property Title", name: "title", widget: "string" }
+          - { label: "Property Type", name: "type", widget: "string" }
+          - { label: "Price per Night", name: "price", widget: "string" }
+          - { label: "Number of Guests", name: "guests", widget: "string" }
+          - {
+              label: "Main Description",
+              name: "description",
+              widget: "markdown",
+            }
+          - label: "Image Gallery URLs"
+            name: "images"
+            widget: "list"
+            field: { label: "Image URL", name: "url", widget: "image" }
+
+  # ===== TESTIMONIALS =====
   - name: "testimonials"
     label: "Testimonials"
-    folder: "src/content/testimonials"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Client Name", name: "name", widget: "string" }
-      - { label: "Review", name: "review", widget: "text" }
-      - { label: "Client Image", name: "image", widget: "image" }
+    files:
+      - name: "testimonials_content"
+        label: "Testimonials Section"
+        file: "src/content/testimonials.json"
+        fields:
+          - { label: "Section Heading", name: "heading", widget: "string" }
+          - {
+              label: "Section Description",
+              name: "description",
+              widget: "text",
+            }
+          - {
+              label: "Contact Us Heading",
+              name: "contactHeading",
+              widget: "string",
+            }
+          - {
+              label: "Contact Description",
+              name: "contactDescription",
+              widget: "text",
+            }
+          - label: "Client Reviews"
+            name: "reviews"
+            widget: "list"
+            fields:
+              - { label: "Client Name", name: "name", widget: "string" }
+              - { label: "Client Image", name: "image", widget: "image" }
+              - { label: "Review Text", name: "review", widget: "text" }
 
-  - name: "gallery"
-    label: "Gallery"
-    folder: "src/content/gallery"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Caption", name: "caption", widget: "string", required: false }
-
+  # ===== FOOTER =====
   - name: "footer"
     label: "Footer"
     files:
@@ -103,8 +511,113 @@ collections:
         label: "Footer Content"
         file: "src/content/footer.json"
         fields:
+          - {
+              label: "About Section Heading",
+              name: "aboutHeading",
+              widget: "string",
+            }
           - { label: "About Text", name: "aboutText", widget: "text" }
+          - {
+              label: "Contact Section Heading",
+              name: "contactHeading",
+              widget: "string",
+            }
           - { label: "Address", name: "address", widget: "text" }
           - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Website", name: "website", widget: "string" }
+          - { label: "Fax", name: "fax", widget: "string" }
+          - { label: "Website Name", name: "website", widget: "string" }
+          - {
+              label: "Currency Selector Label",
+              name: "currencyLabel",
+              widget: "string",
+            }
+          - {
+              label: "Featured Listings Heading",
+              name: "featuredHeading",
+              widget: "string",
+            }
+          - {
+              label: "Featured Property Title",
+              name: "featuredTitle",
+              widget: "string",
+            }
+          - {
+              label: "Featured Property Location",
+              name: "featuredLocation",
+              widget: "string",
+            }
+          - {
+              label: "Featured Property Price",
+              name: "featuredPrice",
+              widget: "string",
+            }
+          - {
+              label: "Featured Property Image",
+              name: "featuredImage",
+              widget: "image",
+            }
+          - { label: "Copyright Text", name: "copyright", widget: "string" }
+          - { label: "Terms Link Text", name: "termsText", widget: "string" }
+          - {
+              label: "Privacy Link Text",
+              name: "privacyText",
+              widget: "string",
+            }
+
+  # ===== BUTTONS & COMMON TEXTS =====
+  - name: "common"
+    label: "Common Texts & Buttons"
+    files:
+      - name: "buttons"
+        label: "Button Texts"
+        file: "src/content/buttons.json"
+        fields:
+          - { label: "Book Now Button", name: "bookNow", widget: "string" }
+          - {
+              label: "Check Availability Button",
+              name: "checkAvailability",
+              widget: "string",
+            }
+          - {
+              label: "Instant Booking Button",
+              name: "instantBooking",
+              widget: "string",
+            }
+          - {
+              label: "Add to Favorites Button",
+              name: "addToFavorites",
+              widget: "string",
+            }
+          - {
+              label: "Contact Owner Button",
+              name: "contactOwner",
+              widget: "string",
+            }
+          - { label: "Search Button", name: "search", widget: "string" }
+          - { label: "Close Button", name: "close", widget: "string" }
+          - { label: "View More Button", name: "viewMore", widget: "string" }
+
+      - name: "labels"
+        label: "Common Labels"
+        file: "src/content/labels.json"
+        fields:
+          - { label: "Price Info Label", name: "priceInfo", widget: "string" }
+          - { label: "Address Label", name: "address", widget: "string" }
+          - { label: "Details Label", name: "details", widget: "string" }
+          - { label: "Features Label", name: "features", widget: "string" }
+          - {
+              label: "Terms and Conditions Label",
+              name: "terms",
+              widget: "string",
+            }
+          - {
+              label: "Availability Label",
+              name: "availability",
+              widget: "string",
+            }
+          - {
+              label: "Similar Listings Label",
+              name: "similarListings",
+              widget: "string",
+            }
+          - { label: "Share Label", name: "share", widget: "string" }

@@ -1,0 +1,33 @@
+{
+  "logo": "/images/logo.png",
+  "links": [
+    {
+      "text": "Homepage",
+      "url": "/home-page"
+    },
+    {
+      "text": "About/FAQ",
+      "url": "/faqs"
+    },
+    {
+      "text": "Rooms",
+      "url": "/rooms"
+    },
+    {
+      "text": "Services",
+      "url": "/services"
+    },
+    {
+      "text": "Packages",
+      "url": "/travel"
+    },
+    {
+      "text": "Gallery",
+      "url": "/gallery"
+    },
+    {
+      "text": "Travel",
+      "url": "/travel"
+    }
+  ]
+}
