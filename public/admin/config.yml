@@ -1,0 +1,143 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Homepage Content
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "src/content/homepage.json"
+        fields:
+          - {
+              label: "Main Title",
+              name: "mainTitle",
+              widget: "string",
+              default: "Welcome to Our Hotel",
+            }
+          - {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+              default: "Experience luxury and comfort like never before",
+            }
+          - { label: "Video URL", name: "videoUrl", widget: "string" }
+
+  # About Page Content
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about_content"
+        label: "About Content"
+        file: "src/content/about.json"
+        fields:
+          - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "About Title", name: "aboutTitle", widget: "string" }
+          - {
+              label: "About Description",
+              name: "aboutDescription",
+              widget: "text",
+            }
+          - { label: "Banner Image", name: "bannerImage", widget: "image" }
+          - { label: "Button Text", name: "buttonText", widget: "string" }
+
+  # Rooms/Properties
+  - name: "rooms"
+    label: "Rooms"
+    folder: "src/content/rooms"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Room Name", name: "title", widget: "string" }
+      - { label: "Room Number", name: "roomNumber", widget: "number" }
+      - { label: "Price per Night", name: "price", widget: "number" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Main Image", name: "mainImage", widget: "image" }
+      - label: "Gallery Images"
+        name: "galleryImages"
+        widget: "list"
+        field: { label: "Image", name: "image", widget: "image" }
+      - { label: "Number of Guests", name: "guests", widget: "number" }
+      - { label: "Number of Bedrooms", name: "bedrooms", widget: "number" }
+      - { label: "Number of Bathrooms", name: "bathrooms", widget: "number" }
+      - { label: "Room Type", name: "roomType", widget: "string" }
+      - label: "Amenities"
+        name: "amenities"
+        widget: "list"
+        field: { label: "Amenity", name: "amenity", widget: "string" }
+
+  # Services
+  - name: "services"
+    label: "Services"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Service Name", name: "title", widget: "string" }
+      - {
+          label: "Service Description",
+          name: "description",
+          widget: "markdown",
+        }
+      - { label: "Service Image", name: "image", widget: "image" }
+      - { label: "Service Number", name: "serviceNumber", widget: "number" }
+
+  # FAQs
+  - name: "faqs"
+    label: "FAQs"
+    folder: "src/content/faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "text" }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+
+  # Testimonials
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Review", name: "review", widget: "text" }
+      - { label: "Client Image", name: "image", widget: "image" }
+      - {
+          label: "Rating",
+          name: "rating",
+          widget: "number",
+          min: 1,
+          max: 5,
+          default: 5,
+        }
+
+  # Gallery
+  - name: "gallery"
+    label: "Gallery Images"
+    folder: "src/content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 1 }
+
+  # Footer Content
+  - name: "footer"
+    label: "Footer"
+    files:
+      - name: "footer_content"
+        label: "Footer Content"
+        file: "src/content/footer.json"
+        fields:
+          - { label: "About Text", name: "aboutText", widget: "text" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Website", name: "website", widget: "string" }
