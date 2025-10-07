@@ -1,8 +1,7 @@
 backend:
   name: github
-  repo: realahmed45/https://github.com/realahmed45/my-secret-home.git # ⚠️ REPLACE WITH YOUR ACTUAL GITHUB USERNAME/REPO
+  repo: realahmed45/my-secret-home # Just username/repo-name
   branch: main
-  # GitHub OAuth - requires GitHub token from user
   open_authoring: true
 
 media_folder: "public/images/uploads"
