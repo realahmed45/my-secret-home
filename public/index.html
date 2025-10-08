@@ -7,37 +7,211 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Secret Home Bali - Your perfect retreat in Bali"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <title>Secret Home Bali</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- AUTO CONTENT INJECTOR - NO COMPONENT CHANGES NEEDED! -->
+    <script>
+      (function () {
+        "use strict";
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+        // Content Injector - Automatically replaces content from CMS
+        class ContentInjector {
+          constructor() {
+            this.content = {};
+            this.init();
+          }
+
+          async init() {
+            await this.loadContent();
+            this.startWatching();
+            this.setupHotReload();
+          }
+
+          async loadContent() {
+            const t = Date.now();
+            try {
+              const [navbar, hero, footer, testimonials, buttons] =
+                await Promise.all([
+                  fetch(`/content/navbar.json?t=${t}`)
+                    .then((r) => r.json())
+                    .catch(() => null),
+                  fetch(`/content/homepage-hero.json?t=${t}`)
+                    .then((r) => r.json())
+                    .catch(() => null),
+                  fetch(`/content/footer.json?t=${t}`)
+                    .then((r) => r.json())
+                    .catch(() => null),
+                  fetch(`/content/testimonials.json?t=${t}`)
+                    .then((r) => r.json())
+                    .catch(() => null),
+                  fetch(`/content/buttons.json?t=${t}`)
+                    .then((r) => r.json())
+                    .catch(() => null),
+                ]);
+
+              this.content = { navbar, hero, footer, testimonials, buttons };
+              console.log("✅ CMS Content loaded");
+              this.replace();
+            } catch (e) {
+              console.warn("⚠️ Could not load CMS content:", e);
+            }
+          }
+
+          startWatching() {
+            // Watch for React rendering
+            const observer = new MutationObserver(() => this.replace());
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            // Initial replace after delay
+            setTimeout(() => this.replace(), 1000);
+            setInterval(() => this.replace(), 3000); // Periodic check
+          }
+
+          replace() {
+            this.replaceNavbar();
+            this.replaceHero();
+            this.replaceFooter();
+            this.replaceButtons();
+          }
+
+          replaceNavbar() {
+            if (!this.content.navbar) return;
+
+            // Logo
+            document.querySelectorAll('img[src*="logo"]').forEach((img) => {
+              img.src = this.content.navbar.logo;
+            });
+
+            // Links
+            const navLinks = document.querySelectorAll("nav a, header a");
+            this.content.navbar.links.forEach((link, i) => {
+              if (navLinks[i]) {
+                navLinks[i].textContent = link.text;
+                navLinks[i].href = link.url;
+              }
+            });
+          }
+
+          replaceHero() {
+            if (!this.content.hero) return;
+
+            // Title
+            document.querySelectorAll("h1").forEach((h1) => {
+              if (
+                h1.textContent.includes("Welcome") ||
+                h1.textContent.includes("hotel")
+              ) {
+                h1.textContent = this.content.hero.mainTitle;
+              }
+            });
+
+            // Subtitle
+            document.querySelectorAll("p").forEach((p) => {
+              if (
+                p.textContent.includes("luxury") ||
+                p.textContent.includes("Experience")
+              ) {
+                p.textContent = this.content.hero.subtitle;
+              }
+            });
+
+            // Video
+            document.querySelectorAll("video, video source").forEach((v) => {
+              if (v.tagName === "VIDEO") {
+                v.src = this.content.hero.videoUrl;
+              } else {
+                v.setAttribute("src", this.content.hero.videoUrl);
+              }
+            });
+          }
+
+          replaceFooter() {
+            if (!this.content.footer) return;
+
+            document.querySelectorAll("footer *").forEach((el) => {
+              const text = el.textContent;
+
+              // Phone
+              if (text.includes("+62")) {
+                el.textContent = el.textContent.replace(
+                  /\+62[\d\s\-]+/g,
+                  this.content.footer.phone
+                );
+              }
+
+              // Copyright
+              if (text.includes("Rights Reserved")) {
+                el.textContent = `© ${this.content.footer.copyright}`;
+              }
+
+              // Address
+              if (text.includes("Jl.")) {
+                el.textContent = this.content.footer.address;
+              }
+            });
+          }
+
+          replaceButtons() {
+            if (!this.content.buttons) return;
+
+            document
+              .querySelectorAll('button, .btn, [role="button"]')
+              .forEach((btn) => {
+                const text = btn.textContent.toLowerCase().trim();
+
+                if (text.includes("book"))
+                  btn.textContent = this.content.buttons.bookNow;
+                else if (text.includes("search"))
+                  btn.textContent = this.content.buttons.search;
+                else if (text.includes("check"))
+                  btn.textContent = this.content.buttons.checkAvailability;
+                else if (text.includes("view"))
+                  btn.textContent = this.content.buttons.viewMore;
+              });
+          }
+
+          setupHotReload() {
+            window.addEventListener("message", async (e) => {
+              if (e.data === "cms-content-updated") {
+                console.log("🔄 Reloading content...");
+                await this.loadContent();
+              }
+            });
+          }
+        }
+
+        // Auto-start when DOM ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", () => {
+            window.cmsInjector = new ContentInjector();
+          });
+        } else {
+          window.cmsInjector = new ContentInjector();
+        }
+
+        // Netlify Identity
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", (user) => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

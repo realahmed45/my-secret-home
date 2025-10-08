@@ -19,6 +19,67 @@
           }
         });
       }
+
+      // Hot reload functionality - triggers content refresh after CMS publish
+      window.addEventListener("message", function (event) {
+        // Listen for Netlify CMS events
+        if (event.data && typeof event.data === "string") {
+          try {
+            const data = JSON.parse(event.data);
+
+            // When content is published/saved
+            if (data.action === "saved" || data.action === "published") {
+              console.log("CMS content saved/published, triggering reload...");
+
+              // Send message to parent window (main site) to reload content
+              if (window.opener) {
+                window.opener.postMessage("cms-content-updated", "*");
+              }
+
+              // Also send to any iframes
+              window.parent.postMessage("cms-content-updated", "*");
+
+              // Show success notification
+              setTimeout(() => {
+                alert(
+                  "✅ Content updated successfully! The main site will refresh automatically."
+                );
+              }, 500);
+            }
+          } catch (e) {
+            // Not JSON, ignore
+          }
+        }
+      });
+
+      // Alternative: Listen for CMS events directly
+      if (typeof CMS !== "undefined") {
+        CMS.registerEventListener({
+          name: "postPublish",
+          handler: ({ entry }) => {
+            console.log("Content published:", entry);
+
+            // Notify main window
+            if (window.opener) {
+              window.opener.postMessage("cms-content-updated", "*");
+            }
+            window.parent.postMessage("cms-content-updated", "*");
+          },
+        });
+
+        CMS.registerEventListener({
+          name: "postSave",
+          handler: ({ entry }) => {
+            console.log("Content saved:", entry);
+
+            // Notify main window
+            if (window.opener) {
+              window.opener.postMessage("cms-content-updated", "*");
+            }
+            window.parent.postMessage("cms-content-updated", "*");
+          },
+        });
+      }
     </script>
   </body>
 </html>
