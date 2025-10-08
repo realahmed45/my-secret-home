@@ -6,6 +6,10 @@ publish_mode: editorial_workflow
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
+# Add this section - triggers rebuild after publish
+site_url: https://magical-speculoos-b19a17.netlify.app
+display_url: https://magical-speculoos-b19a17.netlify.app
+
 collections:
   # ===== NAVBAR =====
   - name: "navbar"
