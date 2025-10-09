@@ -17,6 +17,10 @@
     {
       "question": "Are pets allowed in the villa?",
       "answer": "We love animals, but we do not allow pets in the villa to ensure comfort and cleanliness for all our guests."
+    },
+    {
+      "question": "Do you accept last-minute bookings?",
+      "answer": "Yes, depending on availability. For best options, we recommend booking in advance, but we’ll do our best to accommodate last-minute requests."
     }
   ]
 }
