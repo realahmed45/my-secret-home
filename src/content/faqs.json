@@ -3,7 +3,7 @@
   "description": "Get quick answers to common questions about booking, amenities, and more. For additional inquiries, our team is here to assist you.",
   "faqItems": [
     {
-      "question": "What is the check-in and check-out time?",
+      "question": "Let me know the check-in and check-out time?",
       "answer": "Check-in is from 3:00 PM and check-out is by 11:00 AM. If you need a different time, please contact us in advance, and we will do our best to accommodate your request."
     },
     {
