@@ -17,7 +17,7 @@ collections:
     files:
       - name: "navbar_content"
         label: "Navbar Content"
-        file: "src/content/navbar.json"
+        file: "public/content/navbar.json"
         fields:
           - { label: "Logo Image", name: "logo", widget: "image" }
           - label: "Menu Links"
@@ -33,7 +33,7 @@ collections:
     files:
       - name: "homepage_hero"
         label: "Hero Section"
-        file: "src/content/homepage-hero.json"
+        file: "public/content/homepage-hero.json"
         fields:
           - { label: "Main Title", name: "mainTitle", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
@@ -45,7 +45,7 @@ collections:
 
       - name: "homepage_search"
         label: "Search Bar"
-        file: "src/content/homepage-search.json"
+        file: "public/content/homepage-search.json"
         fields:
           - {
               label: "Check-in Placeholder",
@@ -74,14 +74,14 @@ collections:
 
       - name: "homepage_properties"
         label: "Properties Section"
-        file: "src/content/homepage-properties.json"
+        file: "public/content/homepage-properties.json"
         fields:
           - { label: "Section Subtitle", name: "subtitle", widget: "string" }
           - { label: "Section Title", name: "title", widget: "string" }
 
       - name: "homepage_why_choose"
         label: "Why Choose Us Section"
-        file: "src/content/homepage-why-choose.json"
+        file: "public/content/homepage-why-choose.json"
         fields:
           - { label: "Section Label", name: "sectionLabel", widget: "string" }
           - { label: "Section Heading", name: "heading", widget: "string" }
@@ -97,7 +97,7 @@ collections:
     files:
       - name: "about_content"
         label: "About Section"
-        file: "src/content/about.json"
+        file: "public/content/about.json"
         fields:
           - { label: "Page Title", name: "pageTitle", widget: "string" }
           - { label: "Main Heading", name: "mainHeading", widget: "string" }
@@ -107,7 +107,7 @@ collections:
 
       - name: "house_sections"
         label: "House Sections (Living Room, Bedroom, etc.)"
-        file: "src/content/house-sections.json"
+        file: "public/content/house-sections.json"
         fields:
           - label: "Sections"
             name: "sections"
@@ -121,7 +121,7 @@ collections:
 
       - name: "faqs"
         label: "FAQs Section"
-        file: "src/content/faqs.json"
+        file: "public/content/faqs.json"
         fields:
           - { label: "FAQ Heading", name: "heading", widget: "string" }
           - { label: "FAQ Description", name: "description", widget: "text" }
@@ -138,14 +138,14 @@ collections:
     files:
       - name: "rooms_intro"
         label: "Rooms Introduction"
-        file: "src/content/rooms-intro.json"
+        file: "public/content/rooms-intro.json"
         fields:
           - { label: "Page Heading", name: "heading", widget: "string" }
           - { label: "Page Description", name: "description", widget: "text" }
 
       - name: "rooms_tabs"
         label: "Room Tabs Content"
-        file: "src/content/rooms-tabs.json"
+        file: "public/content/rooms-tabs.json"
         fields:
           - label: "Rooms"
             name: "rooms"
@@ -172,7 +172,7 @@ collections:
 
       - name: "rooms_faqs"
         label: "Rooms FAQ Section"
-        file: "src/content/rooms-faqs.json"
+        file: "public/content/rooms-faqs.json"
         fields:
           - { label: "FAQ Heading", name: "heading", widget: "string" }
           - { label: "FAQ Description", name: "description", widget: "text" }
@@ -192,14 +192,14 @@ collections:
     files:
       - name: "services_intro"
         label: "Services Page Intro"
-        file: "src/content/services-intro.json"
+        file: "public/content/services-intro.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Description", name: "description", widget: "text" }
 
       - name: "services_list"
         label: "Services List"
-        file: "src/content/services-list.json"
+        file: "public/content/services-list.json"
         fields:
           - label: "Services"
             name: "services"
@@ -214,7 +214,7 @@ collections:
     files:
       - name: "service_1"
         label: "Service 1 - Surfing"
-        file: "src/content/service-1.json"
+        file: "public/content/service-1.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "image" }
@@ -222,7 +222,7 @@ collections:
 
       - name: "service_2"
         label: "Service 2 - Massage"
-        file: "src/content/service-2.json"
+        file: "public/content/service-2.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "image" }
@@ -230,7 +230,7 @@ collections:
 
       - name: "service_3"
         label: "Service 3 - Breakfast"
-        file: "src/content/service-3.json"
+        file: "public/content/service-3.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "string" }
@@ -238,7 +238,7 @@ collections:
 
       - name: "service_4"
         label: "Service 4 - Coconut"
-        file: "src/content/service-4.json"
+        file: "public/content/service-4.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "string" }
@@ -246,7 +246,7 @@ collections:
 
       - name: "service_5"
         label: "Service 5 - Picnicking"
-        file: "src/content/service-5.json"
+        file: "public/content/service-5.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "string" }
@@ -254,7 +254,7 @@ collections:
 
       - name: "service_6"
         label: "Service 6 - Hot Chocolate"
-        file: "src/content/service-6.json"
+        file: "public/content/service-6.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "string" }
@@ -262,7 +262,7 @@ collections:
 
       - name: "service_7"
         label: "Service 7 - Sandboxes"
-        file: "src/content/service-7.json"
+        file: "public/content/service-7.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "string" }
@@ -270,7 +270,7 @@ collections:
 
       - name: "service_8"
         label: "Service 8 - Playground"
-        file: "src/content/service-8.json"
+        file: "public/content/service-8.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Image", name: "mainImage", widget: "string" }
@@ -282,7 +282,7 @@ collections:
     files:
       - name: "gallery_content"
         label: "Gallery Content"
-        file: "src/content/gallery.json"
+        file: "public/content/gallery.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - label: "Gallery Images"
@@ -296,7 +296,7 @@ collections:
     files:
       - name: "travel_content"
         label: "Travel Page Content"
-        file: "src/content/travel.json"
+        file: "public/content/travel.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Agency Name", name: "agencyName", widget: "string" }
@@ -306,7 +306,7 @@ collections:
 
       - name: "travel_description"
         label: "Travel Description Page"
-        file: "src/content/travel-description.json"
+        file: "public/content/travel-description.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Main Banner Image", name: "mainImage", widget: "image" }
@@ -326,7 +326,7 @@ collections:
     files:
       - name: "property_1"
         label: "Property 1 - India Room"
-        file: "src/content/property-1.json"
+        file: "public/content/property-1.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -395,7 +395,7 @@ collections:
 
       - name: "property_2"
         label: "Property 2 - Nepal Room"
-        file: "src/content/property-2.json"
+        file: "public/content/property-2.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -459,7 +459,7 @@ collections:
 
       - name: "property_3"
         label: "Property 3 - Spa Room"
-        file: "src/content/property-3.json"
+        file: "public/content/property-3.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -499,7 +499,7 @@ collections:
 
       - name: "property_4"
         label: "Property 4 - Easy Room"
-        file: "src/content/property-4.json"
+        file: "public/content/property-4.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -539,7 +539,7 @@ collections:
 
       - name: "property_5"
         label: "Property 5 - India Room 2"
-        file: "src/content/property-5.json"
+        file: "public/content/property-5.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -608,7 +608,7 @@ collections:
 
       - name: "property_6"
         label: "Property 6 - Nice & Easy Room"
-        file: "src/content/property-6.json"
+        file: "public/content/property-6.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -677,7 +677,7 @@ collections:
 
       - name: "property_7"
         label: "Property 7 - Full Villa"
-        file: "src/content/property-7.json"
+        file: "public/content/property-7.json"
         fields:
           - { label: "Property Title", name: "title", widget: "string" }
           - { label: "Property Type", name: "type", widget: "string" }
@@ -745,7 +745,7 @@ collections:
     files:
       - name: "testimonials_content"
         label: "Testimonials Section"
-        file: "src/content/testimonials.json"
+        file: "public/content/testimonials.json"
         fields:
           - { label: "Section Heading", name: "heading", widget: "string" }
           - {
@@ -777,7 +777,7 @@ collections:
     files:
       - name: "footer_content"
         label: "Footer Content"
-        file: "src/content/footer.json"
+        file: "public/content/footer.json"
         fields:
           - {
               label: "About Section Heading",
@@ -838,7 +838,7 @@ collections:
     files:
       - name: "buttons"
         label: "Button Texts"
-        file: "src/content/buttons.json"
+        file: "public/content/buttons.json"
         fields:
           - { label: "Book Now Button", name: "bookNow", widget: "string" }
           - {
@@ -867,7 +867,7 @@ collections:
 
       - name: "labels"
         label: "Common Labels"
-        file: "src/content/labels.json"
+        file: "public/content/labels.json"
         fields:
           - { label: "Price Info Label", name: "priceInfo", widget: "string" }
           - { label: "Address Label", name: "address", widget: "string" }
