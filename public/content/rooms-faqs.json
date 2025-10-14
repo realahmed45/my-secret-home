@@ -1,0 +1,39 @@
+{
+  "heading": "Frequently Asked Questions",
+  "description": "Get answers to your burning questions and make the most of your stay at My Secret Bali Homes!",
+  "faqs": [
+    {
+      "question": "What are the check-in and check-out times?",
+      "answer": [
+        "Check-in: 2 PM – 8 PM. Late arrivals after 8 PM may incur a small fee.",
+        "Check-out: By 11 AM."
+      ]
+    },
+    {
+      "question": "Is breakfast included?",
+      "answer": ["Yes, we offer unlimited breakfast options daily."]
+    },
+    {
+      "question": "Can I bring my pet?",
+      "answer": ["Unfortunately, pets are not allowed on the property."]
+    },
+    {
+      "question": "How far is the beach from the villa?",
+      "answer": [
+        "The beach is within a short walking distance from the property."
+      ]
+    },
+    {
+      "question": "Is parking available?",
+      "answer": [
+        "Yes, we provide free parking for scooters on-site, and cars can park nearby."
+      ]
+    },
+    {
+      "question": "What activities are nearby?",
+      "answer": [
+        "There are plenty of restaurants, bars, and local attractions within walking distance, including surfing and horse riding."
+      ]
+    }
+  ]
+}

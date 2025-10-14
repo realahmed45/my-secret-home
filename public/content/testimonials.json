@@ -1,0 +1,23 @@
+{
+  "heading": "Clients Testimonials",
+  "description": "Our team is committed to ensuring every aspect of your stay is exceptional, from the moment you arrive until your departure.",
+  "contactHeading": "Contact Us",
+  "contactDescription": "We appreciate your trust greatly. Our clients choose us and our products because they know we are the best.",
+  "reviews": [
+    {
+      "name": "Jenny",
+      "image": "/images/client1.png",
+      "review": "Yuni, the person inside was wonderful. The extra fruit each day was great. Excellent breakfast. Helpful, provided beach towels, massage was OK as a bonus. The common area was nice."
+    },
+    {
+      "name": "Cath",
+      "image": "/images/client2.png",
+      "review": "Great stay, great host! The accommodation is excellent value for money and really homey. Location amazing, 2 mins walk to the beach and hot tub!!"
+    },
+    {
+      "name": "Imen",
+      "image": "/images/client3.png",
+      "review": "Host are very responsive, kind, and accessible. Kitchen is available to all. Breakfast is very good and generous!! Thank you very much for your attention."
+    }
+  ]
+}

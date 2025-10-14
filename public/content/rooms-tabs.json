@@ -1,0 +1,102 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "tabTitle": "Bedroom 1",
+      "heading": "Room 1 (India)",
+      "description": "Immerse yourself in the vibrant charm of India within Room 1. This space blends traditional Indian elegance with modern comfort, featuring rich fabrics, intricate art, and a warm color palette. Soft, ambient lighting and handcrafted furniture create a serene and exotic retreat, offering a unique escape with a touch of Indian heritage in your Bali home.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/09/download-2024-09-14T230413.758.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/property-1"
+    },
+    {
+      "id": 2,
+      "tabTitle": "Bedroom 2",
+      "heading": "Room 2 (Nepal)",
+      "description": "Experience the captivating essence of Nepal in Room 2. This space seamlessly combines traditional Nepali elegance with contemporary comfort, showcasing vibrant fabrics, detailed artwork, and a soothing color scheme. Soft ambient lighting and handcrafted furnishings create a tranquil and exotic haven, offering a distinctive escape infused with Nepali heritage right in your Bali home.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-3-1.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/property-2"
+    },
+    {
+      "id": 3,
+      "tabTitle": "Bedroom 3",
+      "heading": "Room 3 (Spa)",
+      "description": "Discover the serene beauty of our Spa Room 3. This space harmoniously blends soothing spa aesthetics with modern comfort, featuring calming colors, luxurious textures, and tranquil artwork. Gentle ambient lighting and thoughtfully designed furnishings create a peaceful oasis, providing a unique retreat infused with a sense of relaxation and rejuvenation in your Bali home.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-16-1.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/property-3"
+    },
+    {
+      "id": 4,
+      "tabTitle": "Bedroom 4",
+      "heading": "Room 4 (Easy)",
+      "description": "Unwind in the inviting comfort of Room 4. This space perfectly balances relaxed aesthetics with modern convenience, featuring soft colors, cozy textures, and calming decor. Soft ambient lighting and carefully selected furnishings create a soothing retreat, offering a delightful escape that promotes relaxation and ease in your Bali home.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/09/Untitled-design-1024x672.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/property-4"
+    },
+    {
+      "id": 5,
+      "tabTitle": "Bedroom 5",
+      "heading": "Room 5 (india)",
+      "description": "Relax in the welcoming comfort of our entire villa. This space seamlessly combines a laid-back aesthetic with modern amenities, featuring soothing colors, plush textures, and tranquil decor. Gentle ambient lighting and thoughtfully chosen furnishings create a serene retreat, providing a wonderful escape that encourages relaxation and harmony in your Bali getaway.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-36-1-1024x768.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/property-5"
+    },
+    {
+      "id": 6,
+      "tabTitle": "Bedroom 6",
+      "heading": "Room 6 (india)",
+      "description": "Relax in the welcoming comfort of our entire villa. This space seamlessly combines a laid-back aesthetic with modern amenities, featuring soothing colors, plush textures, and tranquil decor. Gentle ambient lighting and thoughtfully chosen furnishings create a serene retreat, providing a wonderful escape that encourages relaxation and harmony in your Bali getaway.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-36-1-1024x768.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/property-6"
+    },
+    {
+      "id": 7,
+      "tabTitle": "Full Villa",
+      "heading": "Full Villa",
+      "description": "Relax in the welcoming comfort of our entire villa. This space seamlessly combines a laid-back aesthetic with modern amenities, featuring soothing colors, plush textures, and tranquil decor. Gentle ambient lighting and thoughtfully chosen furnishings create a serene retreat, providing a wonderful escape that encourages relaxation and harmony in your Bali getaway.",
+      "image": "https://mysecrethomebali.com/wp-content/uploads/2024/08/download-36-1-1024x768.png",
+      "tickPoints": [
+        "Spacious Loft Design",
+        "Dedicated Workspace",
+        "Perfect for a family of 4",
+        "Private Attached Bathroom"
+      ],
+      "propertyLink": "/villa"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
+// ============================================
+// 2. HOMEPAGE COMPONENT (homepage.jsx)
+// ============================================
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "./navbar";
-import bottomImage from "../images/bottom-image.png";
-import backgroundImage from "../images/home-banner.png";
-import TestimonialsSection from "./testimonials";
 import { useNavigate } from "react-router-dom";
-import BookingCalendar from "./calender";
+import Navbar from "./navbar";
 import Footer from "./footer";
+import TestimonialsSection from "./testimonials";
+import BookingCalendar from "./calender";
 import {
   FaMapMarkerAlt,
   FaSuitcase,
@@ -19,19 +19,19 @@ import {
   FaHeart,
   FaChevronLeft,
   FaChevronRight,
-  FaBuilding,
-  FaHome,
-  FaBed,
+  FaSearch,
   FaUserFriends,
   FaDog,
   FaCat,
-  FaFrog,
-  FaDove,
-  FaEnvelope,
-  FaSearch,
-  FaUmbrellaBeach,
   FaFish,
+  FaDove,
+  FaUmbrellaBeach,
 } from "react-icons/fa";
+
+// Import JSON files
+import homepageSearch from "../content/homepage-search.json";
+import homepageProperties from "../content/homepage-properties.json";
+import homepageWhyChoose from "../content/homepage-why-choose.json";
 
 // Import property images
 import image1 from "../images/image1.jpg";
@@ -49,11 +49,8 @@ const Homepage = () => {
   const [isGuestSelectorOpen, setIsGuestSelectorOpen] = useState(false);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-  const [guests, setGuests] = useState({
-    adults: 0,
-    children: 0,
-    infants: 0,
-  });
+  const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0 });
+  const [currentImages, setCurrentImages] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   const toggleCalendar = () => setIsCalendarOpen((prev) => !prev);
   const toggleGuestSelector = () => setIsGuestSelectorOpen((prev) => !prev);
@@ -64,13 +61,9 @@ const Homepage = () => {
     { name: "", icon: <FaCat /> },
     { name: "", icon: <FaFish /> },
     { name: "", icon: <FaDove /> },
-
     { name: "", icon: <FaUmbrellaBeach /> },
   ];
 
-  const [currentImages, setCurrentImages] = useState([0, 0, 0, 0, 0, 0, 0]);
-
-  // Updated properties array with 6 rooms + 1 villa
   const properties = [
     {
       id: 1,
@@ -159,24 +152,42 @@ const Homepage = () => {
     });
   };
 
+  // Icon mapping for features
+  const featureIcons = {
+    "Exceptional Location": (
+      <FaMapMarkerAlt className="text-[#b98d1c] text-2xl mr-3" />
+    ),
+    "Tailored Packages": (
+      <FaSuitcase className="text-[#b98d1c] text-2xl mr-3" />
+    ),
+    "Luxurious Accommodations": (
+      <FaShoppingCart className="text-[#b98d1c] text-2xl mr-3" />
+    ),
+    "Commitment to Excellence": (
+      <FaInfinity className="text-[#b98d1c] text-2xl mr-3" />
+    ),
+    "Stunning Amenities": <FaWater className="text-[#b98d1c] text-2xl mr-3" />,
+    "Culinary Delights": (
+      <FaUtensils className="text-[#b98d1c] text-2xl mr-3" />
+    ),
+  };
+
   return (
-    <div className="relative w-full h-screen ">
-      {/* Navbar */}
+    <div className="relative w-full h-screen">
       <Navbar />
 
-      {/* Search Bar Section - Moved before Property Section */}
+      {/* Search Bar Section - Dynamic */}
       <div className="bg-white py-10 mt-20">
-        {/* Search Bar for larger screens */}
+        {/* Desktop Search Bar */}
         <div className="w-11/12 md:w-3/4 bg-[#e0dcd4] shadow-lg rounded-lg p-4 mx-auto hidden md:block mb-10">
           <div className="flex items-center justify-between space-x-4">
-            {/* Check-In Field */}
             <div className="relative flex-1">
               <div
                 className="flex items-center space-x-2 cursor-pointer p-2"
                 onClick={toggleCalendar}
               >
                 <FaCalendarAlt className="text-[#e09c34]" />
-                <p className="text-gray-600">Add Dates</p>
+                <p className="text-gray-600">{homepageSearch.checkInText}</p>
               </div>
               {isCalendarOpen && (
                 <div className="absolute top-full mt-2 bg-white border shadow-lg rounded-lg p-4 z-10">
@@ -202,20 +213,19 @@ const Homepage = () => {
               )}
             </div>
 
-            {/* Guests Field */}
             <div className="relative flex-1">
               <div
                 className="flex items-center space-x-2 cursor-pointer p-2"
                 onClick={toggleGuestSelector}
               >
                 <FaUser className="text-[#e09c34]" />
-                <p className="text-gray-600">Add Guests</p>
+                <p className="text-gray-600">{homepageSearch.guestsText}</p>
               </div>
               {isGuestSelectorOpen && (
                 <div className="absolute top-full mt-2 bg-white border shadow-lg rounded-lg p-4 z-10">
                   <div className="flex justify-between items-center mb-2">
                     <p className="text-sm font-semibold text-gray-600">
-                      Adults <span className="text-xs">(13+ years)</span>
+                      {homepageSearch.adultsLabel}
                     </p>
                     <div className="flex items-center space-x-2">
                       <button
@@ -245,7 +255,7 @@ const Homepage = () => {
                   </div>
                   <div className="flex justify-between items-center mb-2">
                     <p className="text-sm font-semibold text-gray-600">
-                      Children <span className="text-xs">(2-12 years)</span>
+                      {homepageSearch.childrenLabel}
                     </p>
                     <div className="flex items-center space-x-2">
                       <button
@@ -275,7 +285,7 @@ const Homepage = () => {
                   </div>
                   <div className="flex justify-between items-center mb-4">
                     <p className="text-sm font-semibold text-gray-600">
-                      Infants <span className="text-xs">(Under 2 years)</span>
+                      {homepageSearch.infantsLabel}
                     </p>
                     <div className="flex items-center space-x-2">
                       <button
@@ -307,133 +317,37 @@ const Homepage = () => {
                     className="text-[#e09c34] font-semibold"
                     onClick={toggleGuestSelector}
                   >
-                    Close
+                    {homepageSearch.closeText}
                   </button>
                 </div>
               )}
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
-              className="flex items-center bg-[#e09c34] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#d89332] focus:outline-none focus:ring-2 focus:ring-[#e09c34]"
+              className="flex items-center bg-[#e09c34] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#d89332]"
             >
               <FaSearch className="mr-2" />
-              Check Availability
+              {homepageSearch.searchButtonText}
             </button>
           </div>
         </div>
 
-        {/* Search Bar for smaller screens */}
-        <div className="w-11/12 md:w-3/4 bg-[#e0dcd4] shadow-lg rounded-lg p-4 mx-auto md:hidden mb-10">
-          <div className="flex flex-col space-y-4">
-            {/* Check-In Field */}
-            <div
-              className="flex items-center space-x-4 p-2 border rounded-lg cursor-pointer"
-              onClick={toggleCalendar}
-            >
-              <FaCalendarAlt className="text-[#e09c34]" />
-              <p className="text-gray-600">Add Dates</p>
-            </div>
-            {isCalendarOpen && (
-              <div className="p-4 bg-white border shadow-lg rounded-lg">
-                <label className="block mb-2 text-sm font-semibold text-gray-600">
-                  Check-In Date:
-                </label>
-                <input
-                  type="date"
-                  value={checkInDate}
-                  onChange={(e) => setCheckInDate(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-[#e09c34]"
-                />
-                <label className="block mb-2 text-sm font-semibold text-gray-600">
-                  Check-Out Date:
-                </label>
-                <input
-                  type="date"
-                  value={checkOutDate}
-                  onChange={(e) => setCheckOutDate(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#e09c34]"
-                />
-              </div>
-            )}
-
-            {/* Guests Field */}
-            <div
-              className="flex items-center space-x-4 p-2 border rounded-lg cursor-pointer"
-              onClick={toggleGuestSelector}
-            >
-              <FaUser className="text-[#e09c34]" />
-              <p className="text-gray-600">Add Guests</p>
-            </div>
-            {isGuestSelectorOpen && (
-              <div className="p-4 bg-white border shadow-lg rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                  <p className="text-sm font-semibold text-gray-600">
-                    Adults <span className="text-xs">(13+ years)</span>
-                  </p>
-                  <div className="flex items-center space-x-2">
-                    <button
-                      onClick={() =>
-                        setGuests((prev) => ({
-                          ...prev,
-                          adults: Math.max(0, prev.adults - 1),
-                        }))
-                      }
-                      className="bg-gray-200 px-2 py-1 rounded-md"
-                    >
-                      -
-                    </button>
-                    <span>{guests.adults}</span>
-                    <button
-                      onClick={() =>
-                        setGuests((prev) => ({
-                          ...prev,
-                          adults: prev.adults + 1,
-                        }))
-                      }
-                      className="bg-gray-200 px-2 py-1 rounded-md"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-                <button
-                  className="text-[#e09c34] font-semibold"
-                  onClick={toggleGuestSelector}
-                >
-                  Close
-                </button>
-              </div>
-            )}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="flex items-center justify-center bg-[#e09c34] text-white font-bold py-2 px-6 rounded-lg hover:bg-[#d89332] focus:outline-none focus:ring-2 focus:ring-[#e09c34]"
-            >
-              <FaSearch className="mr-2" />
-              Check Availability
-            </button>
-          </div>
-        </div>
-
-        {/* Property Section */}
-        {/* Section Title */}
+        {/* Property Section - Dynamic */}
         <div className="text-center mb-8">
-          <p className="text-sm uppercase text-1xl tracking-wide text-gray-600 font-semibold ">
-            The properties for your next vacation
+          <p className="text-sm uppercase text-1xl tracking-wide text-gray-600 font-semibold">
+            {homepageProperties.subtitle}
           </p>
-          <h2 className="text-2xl font-semibold text-[#e09c34] mt-4 ">
-            Savor An Unforgettable Secret Home Bali
+          <h2 className="text-2xl font-semibold text-[#e09c34] mt-4">
+            {homepageProperties.title}
           </h2>
         </div>
 
         {/* Property Categories */}
         <div className="flex flex-wrap justify-center gap-6 mt-3">
-          {propertyCategories.map((category) => (
+          {propertyCategories.map((category, idx) => (
             <div
-              key={category.name}
+              key={idx}
               className="flex flex-col items-center space-y-2 cursor-pointer hover:text-border border-gray-200 rounded-lg transition-all duration-200 mt-3 mb-10"
             >
               <div className="text-2xl">{category.icon}</div>
@@ -444,7 +358,7 @@ const Homepage = () => {
           ))}
         </div>
 
-        {/* Property Cards - Updated to show 6 rooms + 1 villa */}
+        {/* Property Cards */}
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-24">
           {properties.map((property, index) => (
             <div
@@ -452,7 +366,6 @@ const Homepage = () => {
               className="border border-gray-200 rounded-lg cursor-pointer hover:shadow-md transition-shadow"
               onClick={() => navigate(routes[index])}
             >
-              {/* Image Slider */}
               <div className="relative">
                 <img
                   src={property.images[currentImages[index]]}
@@ -484,8 +397,6 @@ const Homepage = () => {
                   <FaChevronRight className="text-black" />
                 </button>
               </div>
-
-              {/* Property Details */}
               <div className="p-3">
                 <div className="flex justify-between">
                   <h3 className="text-sm font-semibold">{property.title}</h3>
@@ -503,83 +414,37 @@ const Homepage = () => {
           ))}
         </div>
 
-        {/* Updated Section: What To Expect From Our Properties - Only headings */}
+        {/* Why Choose Us Section - Dynamic */}
         <div className="py-24 bg-white">
           <h1 className="text-center text-1xl lg:text-1x1 font-normal text-black mb-2">
-            WHY CHOOSE US
+            {homepageWhyChoose.sectionLabel}
           </h1>
           <h2 className="text-center text-2xl lg:text-3xl font-semibold text-[#e09c34] mb-0">
-            What To Expect From Our Properties
+            {homepageWhyChoose.heading}
           </h2>
-          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-16 ">
-            {/* Card 1 - Only heading */}
-            <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36">
-              <div className="flex items-center justify-center">
-                <FaMapMarkerAlt className="text-[#b98d1c] text-2xl mr-3" />
-                <h3 className="text-lg font-normal text-[#b98d1c]">
-                  Exceptional Location
-                </h3>
+          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-16">
+            {homepageWhyChoose.features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36"
+              >
+                <div className="flex items-center justify-center">
+                  {featureIcons[feature.title] || (
+                    <FaMapMarkerAlt className="text-[#b98d1c] text-2xl mr-3" />
+                  )}
+                  <h3 className="text-lg font-normal text-[#b98d1c]">
+                    {feature.title}
+                  </h3>
+                </div>
               </div>
-            </div>
-
-            {/* Card 2 - Only heading */}
-            <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36">
-              <div className="flex items-center justify-center">
-                <FaSuitcase className="text-[#b98d1c] text-2xl mr-3" />
-                <h3 className="text-lg font-normal text-[#b98d1c]">
-                  Tailored Packages
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3 - Only heading */}
-            <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36">
-              <div className="flex items-center justify-center">
-                <FaShoppingCart className="text-[#b98d1c] text-2xl mr-3" />
-                <h3 className="text-lg font-normal text-[#b98d1c]">
-                  Luxurious Accommodations
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 4 - Only heading */}
-            <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36">
-              <div className="flex items-center justify-center">
-                <FaInfinity className="text-[#b98d1c] text-2xl mr-3" />
-                <h3 className="text-lg font-normal text-[#b98d1c]">
-                  Commitment to Excellence
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 5 - Only heading */}
-            <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36">
-              <div className="flex items-center justify-center">
-                <FaWater className="text-[#b98d1c] text-2xl mr-3" />
-                <h3 className="text-lg font-normal text-[#b98d1c]">
-                  Stunning Amenities
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 6 - Only heading */}
-            <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-center mt-8 h-36">
-              <div className="flex items-center justify-center">
-                <FaUtensils className="text-[#b98d1c] text-2xl mr-3" />
-                <h3 className="text-lg font-normal text-[#b98d1c]">
-                  Culinary Delights
-                </h3>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         <BookingCalendar />
-
         <TestimonialsSection />
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

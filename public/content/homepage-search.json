@@ -1,0 +1,10 @@
+{
+  "checkInText": "Add Dates",
+  "checkOutText": "Add Dates",
+  "guestsText": "Add Guests",
+  "searchButtonText": "Check Availability",
+  "adultsLabel": "Adults (13+ years)",
+  "childrenLabel": "Children (2-12 years)",
+  "infantsLabel": "Infants (Under 2 years)",
+  "closeText": "Close"
+}

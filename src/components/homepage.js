@@ -1,10 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Ensure React Router's Link is imported
-
-import logo from "../images/logo.png"; // Import logo image
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const MainHome = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [heroData, setHeroData] = useState(null);
+  const [navbarData, setNavbarData] = useState(null);
+
+  useEffect(() => {
+    // Load hero data
+    fetch("/content/homepage-hero.json")
+      .then((response) => response.json())
+      .then((data) => setHeroData(data))
+      .catch((error) => console.error("Error loading hero data:", error));
+
+    // Load navbar data
+    fetch("/content/navbar.json")
+      .then((response) => response.json())
+      .then((data) => setNavbarData(data))
+      .catch((error) => console.error("Error loading navbar data:", error));
+  }, []);
+
+  if (!heroData || !navbarData) return null;
 
   return (
     <div>
@@ -13,31 +29,22 @@ const MainHome = () => {
         <div className="flex justify-between items-center px-4 py-2 lg:px-8">
           <Link to="/" className="flex-shrink-0">
             <img
-              src={logo}
+              src={navbarData.logo}
               alt="Website Logo"
               className="h-20 w-auto ml-6 mb-6"
             />
           </Link>
           <div className="flex space-x-4 mb-10 text-1xl">
-            {[
-              { to: "/home-page", text: "Home" },
-              { to: "/faqs", text: "About" },
-              { to: "/rooms", text: "Rooms" },
-              { to: "/services", text: "Services" },
-              { to: "/travel", text: "Packages" },
-              { to: "/gallery", text: "Gallery" },
-              { to: "/travel", text: "Travel" },
-            ].map(({ to, text }) => (
+            {navbarData.links.map((link, index) => (
               <Link
-                key={to}
-                to={to}
+                key={index}
+                to={link.url}
                 className="text-[#dd9933] font-small hover:text-white hover:border-white px-2 py-1 text-sm rounded-[4px] border border-transparent"
               >
-                {text}
+                {link.text}
               </Link>
             ))}
           </div>
-          {/* Empty div to balance the logo and center the navigation */}
           <div className="flex-shrink-0 w-32"></div>
         </div>
       </nav>
@@ -66,12 +73,12 @@ const MainHome = () => {
           </button>
           <Link to="/" className="mx-auto">
             <img
-              src={logo}
+              src={navbarData.logo}
               alt="Website Logo"
               className="h-16 w-auto ml-5 mb-4"
             />
           </Link>
-          <div className="w-8"></div> {/* Spacer to maintain layout balance */}
+          <div className="w-8"></div>
         </div>
 
         {/* Sidebar Menu */}
@@ -86,22 +93,14 @@ const MainHome = () => {
               </button>
             </div>
             <div className="flex flex-col space-y-4 mt-2 px-4 text-1xl">
-              {[
-                { to: "/home-page", text: "Home" },
-                { to: "/faqs", text: "About" },
-                { to: "/rooms", text: "Rooms" },
-                { to: "/services", text: "Services" },
-                { to: "/travel", text: "Packages" },
-                { to: "/gallery", text: "Gallery" },
-                { to: "/travel", text: "Travel" },
-              ].map(({ to, text }) => (
+              {navbarData.links.map((link, index) => (
                 <Link
-                  key={to}
-                  to={to}
+                  key={index}
+                  to={link.url}
                   onClick={() => setMenuOpen(false)}
                   className="text-sm hover:text-[#dd9933]"
                 >
-                  {text}
+                  {link.text}
                 </Link>
               ))}
             </div>
@@ -120,24 +119,18 @@ const MainHome = () => {
             muted
             preload="metadata"
           >
-            <source
-              src="https://mysecrethomebali.com/wp-content/uploads/2024/09/Untitled-design.mp4"
-              type="video/mp4"
-            />
+            <source src={heroData.videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          {/* Black Cover */}
           <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
         </div>
 
         {/* Content Overlay */}
-        <div className="relative z-10 text-center text-white h-full flex flex-col justify-center items-center ">
-          <h1 className="text-5xl lg:text-5xl  mb-4 sm: text-3xl mb-5">
-            Welcome to Our Hotel
+        <div className="relative z-10 text-center text-white h-full flex flex-col justify-center items-center">
+          <h1 className="text-5xl lg:text-5xl mb-4 sm:text-3xl sm:mb-5">
+            {heroData.mainTitle}
           </h1>
-          <p className="text-xl lg:text-1xl sm:mb-4">
-            Experience luxury and comfort like never before
-          </p>
+          <p className="text-xl lg:text-1xl sm:mb-4">{heroData.subtitle}</p>
         </div>
       </div>
     </div>
