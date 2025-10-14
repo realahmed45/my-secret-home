@@ -3,7 +3,7 @@
   "description": "Get quick answers to common questions about booking, amenities, and more. For additional inquiries, our team is here to assist you.",
   "faqItems": [
     {
-      "question": "What is the check-in and check-out time?",
+      "question": "Let me know the check-in and check-out time?",
       "answer": "Check-in is from 3:00 PM and check-out is by 11:00 AM. If you need a different time, please contact us in advance, and we will do our best to accommodate your request."
     },
     {
@@ -19,6 +19,7 @@
       "answer": "We love animals, but we do not allow pets in the villa to ensure comfort and cleanliness for all our guests."
     },
     {
+<<<<<<< HEAD
       "question": "What amenities are included in the villa?",
       "answer": "Our villa includes air-conditioned bedrooms, a private pool, a fully equipped kitchen, Wi-Fi, and access to spa services and yoga classes."
     },
@@ -45,6 +46,14 @@
     {
       "question": "Are there any nearby attractions or activities?",
       "answer": "Yes, our villa is close to temples, waterfalls, beaches, and markets. We also offer guided tours and activities. Please ask us for recommendations."
+=======
+      "question": "Do you accept last-minute bookings?",
+      "answer": "Yes, depending on availability. For best options, we recommend booking in advance, but we’ll do our best to accommodate last-minute requests."
+    },
+    {
+      "question": "Do you offer pool?",
+      "answer": "Yes, we do offer a pool"
+>>>>>>> 991fa80b0760439230c37393b8653d97903631de
     }
   ]
 }
