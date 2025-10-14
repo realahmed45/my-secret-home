@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.png"; // adjust path as needed
+import { useTranslation } from "react-i18next";
 
 const MainHome = () => {
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroData, setHeroData] = useState(null);
-  const [navbarData, setNavbarData] = useState(null);
 
   useEffect(() => {
     // Load hero data
@@ -12,15 +14,19 @@ const MainHome = () => {
       .then((response) => response.json())
       .then((data) => setHeroData(data))
       .catch((error) => console.error("Error loading hero data:", error));
-
-    // Load navbar data
-    fetch("/content/navbar.json")
-      .then((response) => response.json())
-      .then((data) => setNavbarData(data))
-      .catch((error) => console.error("Error loading navbar data:", error));
   }, []);
 
-  if (!heroData || !navbarData) return null;
+  if (!heroData) return null;
+
+  const navLinks = [
+    { to: "/home-page", textKey: "navbar.homepage" },
+    { to: "/faqs", textKey: "navbar.about" },
+    { to: "/rooms", textKey: "navbar.rooms" },
+    { to: "/services", textKey: "navbar.services" },
+    { to: "/travel", textKey: "navbar.packages" },
+    { to: "/gallery", textKey: "navbar.gallery" },
+    { to: "/travel", textKey: "navbar.travel" },
+  ];
 
   return (
     <div>
@@ -29,19 +35,19 @@ const MainHome = () => {
         <div className="flex justify-between items-center px-4 py-2 lg:px-8">
           <Link to="/" className="flex-shrink-0">
             <img
-              src={navbarData.logo}
+              src={logo}
               alt="Website Logo"
               className="h-20 w-auto ml-6 mb-6"
             />
           </Link>
           <div className="flex space-x-4 mb-10 text-1xl">
-            {navbarData.links.map((link, index) => (
+            {navLinks.map(({ to, textKey }) => (
               <Link
-                key={index}
-                to={link.url}
+                key={to}
+                to={to}
                 className="text-[#dd9933] font-small hover:text-white hover:border-white px-2 py-1 text-sm rounded-[4px] border border-transparent"
               >
-                {link.text}
+                {t(textKey)}
               </Link>
             ))}
           </div>
@@ -73,7 +79,7 @@ const MainHome = () => {
           </button>
           <Link to="/" className="mx-auto">
             <img
-              src={navbarData.logo}
+              src={logo}
               alt="Website Logo"
               className="h-16 w-auto ml-5 mb-4"
             />
@@ -93,14 +99,14 @@ const MainHome = () => {
               </button>
             </div>
             <div className="flex flex-col space-y-4 mt-2 px-4 text-1xl">
-              {navbarData.links.map((link, index) => (
+              {navLinks.map(({ to, textKey }) => (
                 <Link
-                  key={index}
-                  to={link.url}
+                  key={to}
+                  to={to}
                   onClick={() => setMenuOpen(false)}
                   className="text-sm hover:text-[#dd9933]"
                 >
-                  {link.text}
+                  {t(textKey)}
                 </Link>
               ))}
             </div>
